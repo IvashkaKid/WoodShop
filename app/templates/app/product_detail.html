@@ -1,0 +1,72 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="product-image-container">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded product-image" id="product-image">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="product-title">{{ product.name }}</h2>
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price">Цена: <span class="text-success">{{ product.price }} руб.</span></p>
+            <form id="add-to-cart-form" action="{% url 'add_to_cart' product.id %}" method="post" class="form-inline">
+                {% csrf_token %}
+                {% if user.is_authenticated and not user.is_superuser and not user.is_staff %}
+                <input type="number" name="quantity" value="1" min="1" class="form-control mr-2">
+                <button type="submit" class="btn btn-primary btn-lg">Добавить в корзину</button>
+                {% endif %}
+            </form>
+            <div id="cart-notification"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для увеличенного изображения -->
+<div id="image-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+</div>
+
+<script>
+    document.getElementById('add-to-cart-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var form = event.target;
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('cart-notification').innerHTML = data;
+            });
+    });
+
+    // JavaScript для отображения увеличенного изображения
+    var modal = document.getElementById('image-modal');
+    var img = document.getElementById('product-image');
+    var modalImg = document.getElementById('modal-image');
+    var span = document.getElementsByClassName('close')[0];
+
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    modal.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>
+{% endblock %}

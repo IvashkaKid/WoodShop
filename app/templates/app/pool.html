@@ -1,0 +1,73 @@
+{% extends "app/layout.html" %}
+{% block content %}
+<script>
+    $(document).ready(function () {
+        $('#submitBtn').mouseover(function () {
+            $(this).css('color', 'blue');
+        });
+
+        $('#submitBtn').mouseout(function () {
+            $(this).css('color', '');
+        });
+
+        $('input[type="text"]').focus(function () {
+            $(this).css('background-color', 'yellow');
+        });
+
+        $('input[type="text"]').blur(function () {
+            $(this).css('background-color', '');
+        });
+
+        // Добавлено для последнего поля сообщения
+        $('textarea').focus(function () {
+            $(this).css('background-color', 'yellow');
+        });
+
+        $('textarea').blur(function () {
+            $(this).css('background-color', '');
+        });
+    });
+</script>
+
+{% if form != None %}
+<br>
+<h2>Отправьте пожалуйста заполненую анкету</h2></br>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+        {{ form.name }} <br><br>
+
+        <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}:</label>
+        {{ form.phone }} <br><br>
+
+        <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+        {{ form.gender }} <br><br>
+
+        <label>{{ form.visit.label }}:</label><br>
+        {{ form.visit }} <br><br>
+
+        <label>{{ form.notice.label }}:</label>
+        {{ form.notice }} <br><br>
+
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}:</label><br>
+        {{ form.message }}
+        <br><br>
+
+        <input type="submit" id="submitBtn" value="Отправить">
+    </form>
+</div>
+{%  else %}
+<br>
+<h2> Спасибо за предоставленную информацию </h2>
+<h3> Вы предоставили следующее:</h3>
+<ul>
+    <li><span>Имя: </span>{{ data.name }}</li>
+    <li><span>Номер телефона: </span>{{ data.phone }}</li>
+    <li><span>Пол: </span>{{ data.gender }}</li>
+    <li><span>Когда вы совершали покупки у нас: </span>{{ data.visit }}</li>
+    <li><span>Хотите получать рекламные предложения на WhatsApp: </span>{{ data.notice }}</li>
+    <li><span>Комментарий: </span>{{ data.message }}</li>
+</ul>
+{% endif %}
+{% endblock %}

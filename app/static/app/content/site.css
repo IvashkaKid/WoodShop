@@ -1,0 +1,229 @@
+body {
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+#logo{
+    width: 32px;
+    height: auto;
+}
+.linkImg{
+    width:160px;
+    height:auto;
+}
+
+h5 {
+    color: aqua;
+}
+
+.product-image {
+    max-width: 40%;
+    height: auto;
+}
+
+.product-image-container {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Добавьте этот CSS в ваш файл стилей */
+.carousel-inner .item {
+    height: 400px; /* Установите желаемую высоту */
+    text-align: center;
+}
+
+.carousel-inner .item img {
+    max-height: 100%;
+    width: auto;
+    margin: 0 auto;
+ }
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Добавьте полупрозрачный фон для текста */
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Стили для шапки */
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+    font-family: 'Roboto', sans-serif; /* Шрифт для шапки */
+    font-weight: 550; /* Жирный шрифт */
+    color: #f5fcfc; /* Цвет текста */
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #ffcc00; /* Цвет текста при наведении */
+}
+
+.navbar-inverse {
+    background-color: #333; /* Новый цвет фона шапки */
+    border-color: #080808;
+}
+
+.carousel-indicators {
+    bottom: -10px; /* Установите желаемое смещение вниз */
+}
+
+.product-image {
+    max-width: 100px; /* Установите желаемую ширину */
+    height: auto;
+    margin-right: 10px; /* Отступ справа от изображения */
+    vertical-align: middle; /* Выравнивание по центру */
+}
+
+.product-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0;
+}
+
+.product-item {
+    margin-bottom: 20px; /* Отступ между элементами списка */
+    border-bottom: 1px solid #ddd; /* Добавляем разделительную линию */
+    padding-bottom: 10px; /* Отступ снизу от элемента */
+}
+
+.product-item:last-child {
+    border-bottom: none; /* Убираем разделительную линию у последнего элемента */
+    margin-bottom: 0; /* Убираем отступ у последнего элемента */
+}
+
+.product-item a {
+     display: flex; /* Используем flexbox для выравнивания */
+     align-items: center; /* Выравнивание по центру по вертикали */
+     text-decoration: none; /* Убираем подчеркивание ссылок */
+     color: #333; /* Цвет текста ссылок */
+}
+
+.product-item a:hover {
+    color: #ffcc00; /* Цвет текста ссылок при наведении */
+}
+
+/* Добавьте этот CSS в ваш файл стилей */
+.product-image {
+    max-width: 40%;
+    height: auto;
+    cursor: pointer; /* Делаем курсор указателем при наведении на изображение */
+}
+
+.product-image-container {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed; /* Фиксируем позицию */
+    z-index: 1; /* Устанавливаем слой выше */
+    padding-top: 100px; /* Отступ сверху */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Добавляем прокрутку, если изображение большое */
+    background-color: rgba(0,0,0,0.9); /* Фон с прозрачностью */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
